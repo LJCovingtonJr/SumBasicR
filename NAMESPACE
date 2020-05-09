@@ -1,0 +1,4 @@
+exportPattern("^[[:alpha:]]+")
+import(tokenizers)
+import(stopwords)
+import(dplyr)
