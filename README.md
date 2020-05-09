@@ -1,5 +1,4 @@
 # SumBasicR
-## Overview
 This package is an R implementation of the SumBasic Frequency-Based Summarization Algorithm.  See Nenkova and Vanderwende (2005) for more information.
 Nenkova, Ani, and Lucy Vanderwende. "The Impact of Frequency on Summarization." Microsoft Research, Redmond, Washington, Tech. Rep. MSR-TR-2005 101 (2005).
 
