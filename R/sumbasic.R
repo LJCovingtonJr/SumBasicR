@@ -22,7 +22,7 @@ sumbasic <- function(text, len = 3){
     for(i in 1:nrow(weights)){
       sentence_tok <- unlist(tokenize_words(weights[i,]$sentences))
       if(highest_prob_word %in% sentence_tok & weights[i,]$weights > best_score_weight){
-        best_score_sentence <- paste(weights[i,]$sentences, ".", sep="")
+        best_score_sentence <- weights[i,]$sentences
         best_score_weight <- weights[i,]$weights
 
         best_score_tok <- unlist(tokenize_words(best_score_sentence))

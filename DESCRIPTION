@@ -1,8 +1,8 @@
 Package: SumBasicR
 Type: Package
 Title: SumBasic Summarization System
-Version: 0.0.0.9001
-Date: 2020-05-09
+Version: 0.0.0.9002
+Date: 2020-06-04
 Author: L. J. Covington Jr. <LJCovington@usf.edu>
 Maintainer: L. J. Covington Jr. <LJCovington@usf.edu>
 Description: An R Implementation of the SumBasic 
@@ -12,8 +12,11 @@ License: MIT + file LICENSE
 LazyData: true
 Imports: 
     tokenizers,
-    stopwords,
     dplyr
 Depends:
   R (>= 3.6.0)
 RoxygenNote: 7.1.0
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

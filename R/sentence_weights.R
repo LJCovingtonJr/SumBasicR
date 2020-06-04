@@ -12,19 +12,19 @@ sentence_weights <- function(text, dist){
   # For a given text and probability distribution — as returned by compute_probability_dist() — returns the weights for each sentence (the average probability of the words in the sentence)
 
   sentences <- unlist(tokenize_sentences(text))
-  clean <- sapply(sentences, gsub, pattern = "[[:punct:]]", replacement = "", USE.NAMES = FALSE)
 
   weights <- vector(mode = "numeric")
-  for(i in clean){
+  for(i in sentences){
     sentence_words <- unlist(tokenize_words(i))
     sentence_probs <- dist %>%
-                        filter(dist$words %in% sentence_words)
+      filter(dist$words %in% sentence_words)
     sentence_weight <- mean(sentence_probs$probs)
     weights <- c(weights, sentence_weight)
   }
 
-  result <- data.frame(clean, weights, stringsAsFactors = FALSE)
+  result <- data.frame(sentences, weights, stringsAsFactors = FALSE)
   names(result) <- c("sentences", "weights")
   return(result)
+
 }
 

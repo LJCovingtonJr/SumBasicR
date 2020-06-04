@@ -1,0 +1,47 @@
+---
+title: "SumBasicR"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{SumBasicR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Installing and setting up SumBasicR
+
+It may be safe to say that if one is reading this, one has already installed SumBasicR.  If you haven't, though, use the following code.
+```{r, eval=FALSE}
+devtools::install_github("LJCovingtonJr/rougeR")
+```
+
+rougeR can be activated with the following:
+```{r setup}
+library(SumBasicR)
+```
+
+## What are SumBasic and SumBasicR?
+**SumBasic** is an extractive summarization algorithm developed by Nenkova and Vanderwende (2005) that is mainly used for multi-document summarization.  
+
+**SumBasicR** is an R implementation of the SumBasic algorithm.  While SumBasic is often used for multi-document summarization, SumBasicR currently only supports single-document summarization.
+
+## Generating a summary
+`sumbasic()` is the main function in SumBasicR.  It accepts two values: a text to summarize, and the number of sentences for the final summary.
+```{r, out.width='80%'}
+text <- "There has been a growing interest in summarzation in the past years, and in particular, the large amount of on-line news has led to the development of numerous multi-document summarizers for newswire, as well as online systems such as NewsInEssense and the Columbia Newsblaster that run on a daily basis.  The main problem an extractive summarization needs to solve is content selection, i.e., deciding which sentences from the input documents are importat enough to be included in a summary.  Even systems that go beyond sentence extraction and use generation techniques to reformulate or simplify the text of the original articles needs to decide which simplified sentences should be chosen, or which sentence should be fused together or rewritten.  The usual approach for identifying sentences for inclusion in the summary is to train a binary classifier, a Markov model, or directly assign weight to sentences based on a number of features and heuristically chosen feature weights and pick the most highly weighted sentences.  Invariably, term frequency is among the features used to determine sentence importance, but the relative contribution that term frequency makes is generally not reported."
+len <- 3 # the default length of sumbasic() is 3
+
+sumbasic(text, len)
+```
+The text used here is a section of the first paragraph of Nenkova and Vanderwende (2005).
+
+As you can see, the `sumbasic()` function returns a string containing a summary generated using the SumBasic algorithm.  
+
+## Reference
+Nenkova, Ani, and Lucy Vanderwende. "The Impact of Frequency on Summarization." Microsoft Research, Redmond, Washington, Tech. Rep. MSR-TR-2005 101 (2005).
